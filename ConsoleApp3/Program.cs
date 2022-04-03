@@ -2,16 +2,15 @@
 {
     static void Main(string[] args)
     {
-        const string MyName = "Jane";
-        Console.WriteLine(MyName);
-        Console.WriteLine("\t Привет, мир");
-        Console.WriteLine("\t Мне 27 лет");
-        Console.WriteLine("\t My name is Jane");
-        Console.WriteLine("\t My name is \n Jane");
-        Console.WriteLine('\x23');
-        Console.WriteLine(true);
-        Console.WriteLine(false);
-        //Константы/Литералы
+        const string MyName = "Vlad";
+        byte MyAge = 19;
+        bool Pitomec = true;
+        double BootSize = 41.5;
+        Console.WriteLine("Меня зовут " + MyName);
+        Console.WriteLine("Мне исполнилось " + MyAge);
+        Console.WriteLine("Есть ли у меня питомец " + Pitomec);
+        Console.WriteLine("Мой размер ноги " + BootSize);
+        
 
 
 
