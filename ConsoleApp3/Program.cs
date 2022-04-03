@@ -11,6 +11,7 @@
         Console.WriteLine('\x23');
         Console.WriteLine(true);
         Console.WriteLine(false);
+        //Константы/Литералы
 
 
 
