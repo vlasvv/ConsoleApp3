@@ -1,18 +1,21 @@
 ﻿class Programm
 {
-    static void Main(string[] args)
+    
+    static void Main(string[] args) {
+        if (Console.BackgroundColor == ConsoleColor.Black)
+        {
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
+        }
+
+
+
+        }
+    enum Semaphore
     {
-        string? a = Console.ReadLine(); ;
-        double b = Convert.ToDouble(a);
-        double result = 0;
-        double value = 100;
-
-
-        result = b / value;
-        Console.WriteLine("Result: " + result + " metr");
-
-
-
-        Console.ReadKey();
+        Green = 100,
+        Yellow = 200,
+        Red = 300,
     }
 }
