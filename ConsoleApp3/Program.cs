@@ -1,36 +1,102 @@
-﻿class Programm
+﻿class Program
 {
-
-    static void Main(string[] args)
+    public static void SignUp()
     {
-        (string Name, string LastName, string Login, int LoginLength, bool Pet, string[] colors, int Age) User;
+        (string Name, string SurName, string[] colors, int Age, string[] NamePet) User;
         Console.WriteLine("Введите своё имя: ");
         User.Name = Console.ReadLine();
         Console.WriteLine("Введите фамилию: ");
-        User.LastName = Console.ReadLine();
-        Console.WriteLine("Введите логин: ");
-        User.Login = (Console.ReadLine());
-        Console.WriteLine("Длина Логина: {0}", User.Login.Length);
+        User.SurName = Console.ReadLine();
+        User.Age = CheckAge();
+
         Console.WriteLine("Есть ли у вас животные? Да или Нет");
         var result = Console.ReadLine();
         if (result == "Да")
         {
-            User.Pet = true;
+            Pets();
         }
-        else
+        Color();
+        Console.WriteLine(User.Name, User.SurName, User.colors, User.Age);
+
+
+        string[] Color()
         {
-            User.Pet = false;
+            string temp;
+            int num;
+            int countColor;
+            do
+            {
+                Console.WriteLine("Введите кол-во цветов: ");
+                temp = Console.ReadLine();
+            } while (CheckNum(temp, out num));
+            countColor = Convert.ToInt32(temp);
+            User.colors = new string[countColor];
+            for (int i = 0; i < User.colors.Length; i++)
+            {
+                Console.WriteLine("Введите ваш любимый цвет: ");
+                User.colors[i] = Console.ReadLine();
+            }
+            return User.colors;
         }
-        Console.WriteLine("Введите возраст пользователя: ");
-        User.Age = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите ваши 3 любимых цвета ");
-        User.colors = new string[3];
-        for (int i = 0; i < User.colors.Length; i++)
+
+
+        string[] Pets()
         {
-            User.colors[i] = Console.ReadLine();
+
+
+
+            string temp;
+            int num;
+            int countPets;
+            do
+            {
+                Console.WriteLine("Введите кол-во питомцев: ");
+                temp = Console.ReadLine();
+            } while (CheckNum(temp, out num));
+            countPets = Convert.ToInt32(temp);
+            User.NamePet = new string[countPets];
+            for (int i = 0; i < User.NamePet.Length; i++)
+            {
+                Console.WriteLine("Введите кличку питомца: ");
+                User.NamePet[i] = Console.ReadLine();
+            }
+
+            return User.NamePet;
         }
+        int CheckAge()
+        {
+            string temp;
+            int num;
+            int countAge;
+            do
+            {
+                Console.WriteLine("Введите свой возраст: ");
+                temp = Console.ReadLine();
+            } while (CheckNum(temp, out num));
+            countAge = Convert.ToInt32(temp);
+            return countAge;
+        }
+        static bool CheckNum(string number, out int corrumber)
+        {
+            if (int.TryParse(number, out int intnum))
+            {
+                if (intnum > 0)
+                {
+                    corrumber = intnum;
+                    return false;
+                }
+            }
+            {
+                corrumber = 0;
+                return true;
+            }
+        }
+
     }
 
-}
-//
+    static void Main(string[] args)
+    {
+        SignUp();
 
+    }
+}
